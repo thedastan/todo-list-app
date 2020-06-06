@@ -1,0 +1,36 @@
+[
+  {
+    "taskId": "74rxJM2ly",
+    "title": "Front-end",
+    "status": "new"
+  },
+  {
+    "taskId": "74ixJM2ly",
+    "title": "Python",
+    "status": "new"
+  },
+  {
+    "taskId": "9wVSedEcR",
+    "title": "Java",
+    "status": "new",
+    "_isDeleted": false,
+    "_createdAt": 1591004120140,
+    "_deletedAt": null
+  },
+  {
+    "taskId": "uSXRxQ8bZ",
+    "title": "Ruby",
+    "status": "in progress",
+    "_isDeleted": false,
+    "_createdAt": 1591004515723,
+    "_deletedAt": null
+  },
+  {
+    "taskId": "w8f9kbNZA",
+    "title": "Go",
+    "status": "blocked",
+    "_isDeleted": true,
+    "_createdAt": 1591207910112,
+    "_deletedAt": null
+  }
+]
