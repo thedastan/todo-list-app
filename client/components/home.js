@@ -9,6 +9,25 @@ const Home = () => {
   const [taskList, setTaskList] = useState([])
   const { category } = useParams()
 
+  const addCategory = (newCategory) => {
+    axios.post(`/api/v1/tasks/${newCategory}`)
+    setCategoryList([...categoryList, newCategory])
+  }
+
+  const updateStatus = (id, newStatus) => {
+    axios.patch(`/api/v1/tasks/${category}/${id}`, { status: newStatus })
+    const updateTaskList = taskList.map((el) =>
+      el.taskId === id ? { ...el, status: newStatus } : el
+    )
+    setTaskList(updateTaskList)
+  }
+
+  const addTask = (newTask) => {
+    axios
+      .post(`/api/v1/tasks/${category}`, { title: newTask })
+      .then(({ data }) => setTaskList([...taskList, data.newTask]))
+  }
+
   useEffect(() => {
     axios('/api/v1/categories').then(({ data }) => setCategoryList(data))
   }, [])
@@ -18,8 +37,18 @@ const Home = () => {
   }, [category])
   return (
     <div>
-      <Route exact path="/" component={() => <Category categoryList={categoryList} />} />
-      <Route exact path="/:category" component={() => <TaskList taskList={taskList} />} />
+      <Route
+        exact
+        path="/"
+        component={() => <Category categoryList={categoryList} addCategory={addCategory} />}
+      />
+      <Route
+        exact
+        path="/:category"
+        component={() => (
+          <TaskList taskList={taskList} addTask={addTask} updateStatus={updateStatus} />
+        )}
+      />
     </div>
   )
 }

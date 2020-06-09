@@ -1,13 +1,8 @@
 [
   {
-    "taskId": "74rxJM2ly",
-    "title": "Shoes",
-    "status": "new"
-  },
-  {
     "taskId": "74ixJM2ly",
     "title": "Gadgets",
-    "status": "new"
+    "status": "in progress"
   },
   {
     "taskId": "9wVSedEcR",
@@ -28,7 +23,7 @@
   {
     "taskId": "w8f9kbNZA",
     "title": "rest",
-    "status": "blocked",
+    "status": "new",
     "_isDeleted": true,
     "_createdAt": 1591207910112,
     "_deletedAt": null

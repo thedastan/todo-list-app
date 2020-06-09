@@ -156,6 +156,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "purgecss-webpack-plugin": "^2.2.0",
     "react-addons-test-utils": "^15.6.2",
+    "react-spinners": "^0.8.3",
     "regenerator-runtime": "^0.13.5",
     "rimraf": "3.0.2",
     "sass-loader": "8.0.2",
@@ -170,7 +171,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "*.hot-update.json"
+      "*.hot-update.json",
+      "server/**/*.json"
     ]
   },
   "husky": {

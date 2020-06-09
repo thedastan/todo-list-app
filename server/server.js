@@ -97,18 +97,22 @@ server.get('/api/v1/tasks/:category/:timespan', async (req, res) => {
 
 server.post('/api/v1/tasks/:category', async (req, res) => {
   const { category } = req.params // получаем название категории которые запросил клиент
-  const newTask = {
-    taskId: shortid.generate(),
-    title: req.body.title,
-    status: 'new',
-    _isDeleted: false,
-    _createdAt: +new Date(),
-    _deletedAt: null
+  if (Object.keys(req.body).length === 0) {
+    await write(category, [])
+  } else {
+    const newTask = {
+      taskId: shortid.generate(),
+      title: req.body.title,
+      status: 'new',
+      _isDeleted: false,
+      _createdAt: +new Date(),
+      _deletedAt: null
+    }
+    const tasks = await read(category)
+    const updateTasks = [...tasks, newTask]
+    await write(category, updateTasks)
+    res.json({ status: 'success', newTask })
   }
-  const tasks = await read(category)
-  const updateTasks = [...tasks, newTask]
-  await write(category, updateTasks)
-  res.json({ status: 'success' })
 })
 
 server.patch('/api/v1/tasks/:category/:id', async (req, res) => {

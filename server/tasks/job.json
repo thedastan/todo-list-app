@@ -2,7 +2,7 @@
   {
     "taskId": "74rxJM2ly",
     "title": "Front-end",
-    "status": "new"
+    "status": "in progress"
   },
   {
     "taskId": "74ixJM2ly",
@@ -20,7 +20,7 @@
   {
     "taskId": "uSXRxQ8bZ",
     "title": "Ruby",
-    "status": "in progress",
+    "status": "new",
     "_isDeleted": false,
     "_createdAt": 1591004515723,
     "_deletedAt": null
@@ -28,7 +28,7 @@
   {
     "taskId": "w8f9kbNZA",
     "title": "Go",
-    "status": "blocked",
+    "status": "new",
     "_isDeleted": true,
     "_createdAt": 1591207910112,
     "_deletedAt": null
