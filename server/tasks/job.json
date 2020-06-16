@@ -2,12 +2,12 @@
   {
     "taskId": "74rxJM2ly",
     "title": "Front-end",
-    "status": "in progress"
+    "status": "new"
   },
   {
     "taskId": "74ixJM2ly",
     "title": "Python",
-    "status": "new"
+    "status": "done"
   },
   {
     "taskId": "9wVSedEcR",
@@ -20,7 +20,7 @@
   {
     "taskId": "uSXRxQ8bZ",
     "title": "Ruby",
-    "status": "new",
+    "status": "in progress",
     "_isDeleted": false,
     "_createdAt": 1591004515723,
     "_deletedAt": null
@@ -31,6 +31,14 @@
     "status": "new",
     "_isDeleted": true,
     "_createdAt": 1591207910112,
+    "_deletedAt": null
+  },
+  {
+    "taskId": "4LHmAfHo5",
+    "title": "Swift",
+    "status": "in progress",
+    "_isDeleted": false,
+    "_createdAt": 1592055802140,
     "_deletedAt": null
   }
 ]

@@ -119,18 +119,17 @@ server.patch('/api/v1/tasks/:category/:id', async (req, res) => {
   const { id, category } = req.params
   const newStatus = req.body
   const statuses = ['new', 'in progress', 'done', 'blocked']
-  if (statuses.includes(newStatus.status)) {
+  if (statuses.includes(req.body.status) && req.body.title === undefined) {
+    res.status(501)
+    res.json({ status: 'error', message: 'incorrect status' })
+  } else {
     const tasks = await read(category)
     const newTasksList = tasks.map((el) => (el.taskId === id ? { ...el, ...newStatus } : el))
     const updateTask = getTasks(newTasksList.filter((el) => el.taskId === id))
-    await write(category, newTasksList)
-    res.json(...updateTask)
-  } else {
-    res.status(501)
-    res.json({ status: 'error', message: 'incorrect status' })
+    await write(category, newTasksList, updateTask)
+    res.json({ status: 'update successfully' })
   }
 })
-
 server.delete('/api/v1/tasks/:category/:id', async (req, res) => {
   const { id, category } = req.params
   const tasks = await read(category)
@@ -146,7 +145,7 @@ server.use('/api/', (req, res) => {
 
 const [htmlStart, htmlEnd] = Html({
   body: 'separator',
-  title: 'yourproject - Become an IT HERO'
+  title: 'your project - Become an IT HERO'
 }).split('separator')
 
 server.get('/', (req, res) => {
@@ -186,4 +185,5 @@ if (config.isSocketsEnabled) {
   })
   echo.installHandlers(app, { prefix: '/ws' })
 }
+// eslint-disable-next-line no-console
 console.log(`Serving at http://localhost:${port}`)

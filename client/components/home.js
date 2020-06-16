@@ -14,7 +14,13 @@ const Home = () => {
     setCategoryList([...categoryList, newCategory])
   }
 
-  const updateStatus = (id, newStatus) => {
+  const addTask = (newTask) => {
+    axios
+      .post(`/api/v1/tasks/${category}`, { title: newTask })
+      .then(({ data }) => setTaskList([...taskList, data.newTask]))
+  }
+
+  const updateStatus = (newStatus, id) => {
     axios.patch(`/api/v1/tasks/${category}/${id}`, { status: newStatus })
     const updateTaskList = taskList.map((el) =>
       el.taskId === id ? { ...el, status: newStatus } : el
@@ -22,10 +28,10 @@ const Home = () => {
     setTaskList(updateTaskList)
   }
 
-  const addTask = (newTask) => {
-    axios
-      .post(`/api/v1/tasks/${category}`, { title: newTask })
-      .then(({ data }) => setTaskList([...taskList, data.newTask]))
+  const updateTitle = (title, id) => {
+    axios.patch(`/api/v1/tasks/${category}/${id}`, { title })
+    const updatedStatus = taskList.map((el) => (el.taskId === id ? { ...el, title } : el))
+    setTaskList(updatedStatus)
   }
 
   useEffect(() => {
@@ -34,6 +40,12 @@ const Home = () => {
 
   useEffect(() => {
     axios(`/api/v1/tasks/${category}`).then(({ data }) => setTaskList(data))
+  }, [category])
+
+  useEffect(() => {
+    if (typeof category !== 'undefined') {
+      axios(`/api/v1/tasks/${category}`).then(({ data }) => setTaskList(data))
+    }
   }, [category])
   return (
     <div>
@@ -46,7 +58,12 @@ const Home = () => {
         exact
         path="/:category"
         component={() => (
-          <TaskList taskList={taskList} addTask={addTask} updateStatus={updateStatus} />
+          <TaskList
+            taskList={taskList}
+            addTask={addTask}
+            updateStatus={updateStatus}
+            updateTitle={updateTitle}
+          />
         )}
       />
     </div>
