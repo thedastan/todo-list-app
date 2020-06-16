@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import './category.scss'
 
 const Category = (props) => {
   const [newCategory, setNewCategory] = useState('')
   return (
     <div>
-      <div className="container m-auto mt-56 rounded bg-teal-700 flex justify-center p-10 mb-2">
+      <div className="container m-auto mt-56 rounded bg-teal-700 flex justify-center p-8 mb-1">
         <input
           type="text"
           placeholder="Add new category"
@@ -21,8 +22,8 @@ const Category = (props) => {
         </button>
       </div>
       {props.categoryList.map((el) => (
-        <div className=" container flex justify-center  m-auto bg-indigo-800 mb-1 hover:bg-blue-700 hover:text-red-500 text-white font-bold rounded-lg border shadow-lg p-10 text-center">
-          <NavLink className="text-white capitalize text-xl    mr-10 " to={`/${el}`}>
+        <div className="container items flex justify-center  m-auto bg-indigo-800 mb-1 hover:bg-blue-700 hover:text-red-500 text-white font-bold rounded-lg border shadow-lg p-4  text-center">
+          <NavLink className="text-white capitalize text-xl  " to={`/${el}`}>
             {el}
           </NavLink>
         </div>

@@ -30,6 +30,36 @@ const TaskList = (props) => {
         >
           Cancel
         </NavLink>
+        <div className="ml-32 ">
+          <button
+            type="button"
+            onClick={() => props.timeFilter('all')}
+            className="bg-transparent text-white  py-2 px-4 border border-blue-500 rounded"
+          >
+            all
+          </button>{' '}
+          <button
+            type="button"
+            onClick={() => props.timeFilter('month')}
+            className="bg-transparent text-white  py-2 px-4 border border-blue-500 rounded"
+          >
+            month
+          </button>{' '}
+          <button
+            type="button"
+            onClick={() => props.timeFilter('week')}
+            className="bg-transparent text-white  py-2 px-4 border border-blue-500 rounded"
+          >
+            week
+          </button>{' '}
+          <button
+            type="button"
+            onClick={() => props.timeFilter('day')}
+            className="bg-transparent text-white  py-2 px-4 border border-blue-500 rounded"
+          >
+            day
+          </button>
+        </div>
         <div className="inline-block  box">
           <input
             type="text"

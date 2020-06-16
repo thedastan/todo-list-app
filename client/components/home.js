@@ -33,6 +33,9 @@ const Home = () => {
     const updatedStatus = taskList.map((el) => (el.taskId === id ? { ...el, title } : el))
     setTaskList(updatedStatus)
   }
+  const timeFilter = (timespan) => {
+    axios(`/api/v1/tasks/${category}/${timespan}`).then(({ data }) => setTaskList(data))
+  }
 
   useEffect(() => {
     axios('/api/v1/categories').then(({ data }) => setCategoryList(data))
@@ -63,6 +66,7 @@ const Home = () => {
             addTask={addTask}
             updateStatus={updateStatus}
             updateTitle={updateTitle}
+            timeFilter={timeFilter}
           />
         )}
       />

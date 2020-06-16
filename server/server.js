@@ -86,7 +86,8 @@ server.get('/api/v1/tasks/:category/:timespan', async (req, res) => {
   const periodOfTime = {
     day: 1000 * 60 * 60 * 24,
     week: 7 * 1000 * 60 * 60 * 24,
-    month: 30 * 1000 * 60 * 60 * 24
+    month: 30 * 1000 * 60 * 60 * 24,
+    all: +new Date()
   }
   const filteredTasks = getTasks(
     // eslint-disable-next-line no-underscore-dangle
