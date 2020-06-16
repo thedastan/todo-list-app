@@ -178,7 +178,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env npm run lint && npm test",
+      "pre-commit": "npm run lint",
       "pre-push": "cross-env npm run lint && npm test"
     }
   }
