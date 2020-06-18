@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './taskItem.scss'
 
 const TaskItem = (props) => {
   const [editMode, setEditMode] = useState(false)
@@ -70,7 +69,7 @@ const TaskItem = (props) => {
           className="bg-blue-800  float-left ml-40 hover:bg-blue-500 text-white font-semibold p-1   hover:text-white  px-4 border border-none hover:border-transparent"
           onClick={() => props.updateStatus('new', props.taskId)}
         >
-          block
+          blocked
         </button>
       ) : (
         ''

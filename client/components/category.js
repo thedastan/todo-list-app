@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import './category.scss'
 
 const Category = (props) => {
   const [newCategory, setNewCategory] = useState('')
@@ -22,7 +21,7 @@ const Category = (props) => {
         </button>
       </div>
       {props.categoryList.map((el) => (
-        <div className="container items flex justify-center  m-auto bg-indigo-800 mb-1 hover:bg-blue-700 hover:text-red-500 text-white font-bold rounded-lg border shadow-lg p-4  text-center">
+        <div className="container  flex justify-center  m-auto bg-indigo-800 mb-1 hover:bg-blue-700 hover:text-red-500 text-white font-bold rounded-lg border shadow-lg p-4  text-center">
           <NavLink className="text-white capitalize text-xl  " to={`/${el}`}>
             {el}
           </NavLink>
